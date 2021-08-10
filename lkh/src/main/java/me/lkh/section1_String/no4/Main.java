@@ -13,12 +13,13 @@ public class Main {
             lst.add(in.next());
         }
 
-        for(String str : solution(lst)){
+        //for(String str : solutionWithoutStringBuilder(lst)){
+        for(String str : solutionWithStringBuilder(lst)){
             System.out.println(str);
         }
     }
 
-    private static List<String> solution(List<String> lst) {
+    private static List<String> solutionWithStringBuilder(List<String> lst) {
         List<String> result = new ArrayList<>();
         for(String str : lst){
             result.add(new StringBuilder(str).reverse().toString());
@@ -26,4 +27,23 @@ public class Main {
         return result;
     }
 
+    private static List<String> solutionWithoutStringBuilder(List<String> lst) {
+        List<String> result = new ArrayList<>();
+
+        for(String str : lst){
+            char[] s = str.toCharArray();
+            int lt = 0;
+            int rt = s.length - 1;
+            for(int i = 0; i < (s.length / 2); i++){
+                char tmp = s[lt];
+                s[lt] = s[rt];
+                s[rt] = tmp;
+
+                lt++;
+                rt--;
+            }
+            result.add(String.valueOf(s));
+        }
+        return result;
+    }
 }
