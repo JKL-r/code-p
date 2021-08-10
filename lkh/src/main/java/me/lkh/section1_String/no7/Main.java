@@ -12,24 +12,14 @@ public class Main {
     }
 
     private static String solution(String str) {
-        String result;
+        StringBuilder sb = new StringBuilder(str);
 
-        char[] cArr = str.toLowerCase().toCharArray();
-        scope:
-        {
-            int lt = 0;
-            int rt = cArr.length - 1;
-            for (int i = 0; i < cArr.length / 2; i++) {
-                if (cArr[lt] != cArr[rt]){
-                    result = "NO";
-                    break scope;
-                }
-                lt ++;
-                rt --;
-            }
-            result = "YES";
+        if (str.equalsIgnoreCase(sb.reverse().toString())) {
+            return "YES";
         }
-        return result;
+        else{
+            return "NO";
+        }
     }
 
 }
