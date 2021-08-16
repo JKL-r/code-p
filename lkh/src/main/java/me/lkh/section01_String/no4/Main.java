@@ -1,4 +1,4 @@
-package me.lkh.section1_String.no4;
+package me.lkh.section01_String.no4;
 
 import java.util.*;
 

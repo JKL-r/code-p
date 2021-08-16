@@ -1,4 +1,4 @@
-package me.lkh.section1_String.no7;
+package me.lkh.section01_String.no7;
 
 import java.util.Scanner;
 
