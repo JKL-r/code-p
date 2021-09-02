@@ -9,30 +9,30 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        System.out.println(solution(n));
+        int n = sc.nextInt(), k = sc.nextInt();
+        int[] nums = new int[n];
+        for(int i = 0; i < n; i++){
+            nums[i] = sc.nextInt();
+        }
+        System.out.println(solution(n, k, nums));
     }
 
-    private static int solution(int n){
+    private static int solution(int n, int k, int[] nums){
 
-        int result = 0, lt = 0, sum = 0, maxNum = (n / 2) + 1;
+        int result = 0, zCnt = 0, lt = 0, len = 0;
 
-        int[] arr = new int[maxNum];
-        for(int i = 0; i < maxNum; i++){
-            arr[i] = i + 1;
-        }
-
-        for(int rt = 0; rt < maxNum; rt++){
-            sum += arr[rt];
-            if(sum == n){
-                result ++;
+        for(int rt = 0; rt < n; rt++){
+            if(nums[rt] == 0){
+                zCnt++;
             }
-            while(sum >= n){
-                sum -= arr[lt++];
-                if(sum == n) {
-                    result++;
+
+            while(zCnt > k){
+                if(nums[lt] == 0){
+                    zCnt--;
                 }
+                lt++;
             }
+            result = Math.max(rt - lt + 1, result);
         }
 
         return result;
