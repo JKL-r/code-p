@@ -19,7 +19,7 @@ public class Main {
 
     private static int solution(int n, int k, int[] nums){
 
-        int result = 0, zCnt = 0, lt = 0, len = 0;
+        int result = 0, zCnt = 0, lt = 0;
 
         for(int rt = 0; rt < n; rt++){
             if(nums[rt] == 0){
